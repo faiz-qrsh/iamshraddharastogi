@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give Authorization</title>
+    <style>
+        div {
+            padding: 20px;
+        }
+
+        #errormsg {
+            padding: 5px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <center>
+            <p id="errormsg"></p>
+            <input type="number" placeholder="Enter the passcode">
+            <button onclick="authorizeUser(event)">Submit</button>
+        </center>
+    </div>
+    <script>
+        function authorizeUser(event) {
+            let enteredPasscode = Number(event.target.previousElementSibling.value);
+            if (enteredPasscode == 13112001) {
+                window.location.pathname = '/index1.html';
+                document.getElementById('errormsg').innerHTML = '';
+            } else {
+                document.getElementById('errormsg').innerHTML = '401 Unauthorized';
+            }
+        }
+        function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+</body>
+
+</html>
